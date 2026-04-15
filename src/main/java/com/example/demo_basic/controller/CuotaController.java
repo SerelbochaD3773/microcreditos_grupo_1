@@ -62,4 +62,35 @@ public class CuotaController {
         cuotaService.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    // ========== ENDPOINTS CON VALIDACIÓN DE CLIENTE ==========
+
+    @Operation(summary = "Obtener todas las cuotas de un cliente")
+    @GetMapping("/cliente/{clienteId}")
+    public ResponseEntity<List<Cuota>> findAllByClienteId(@PathVariable Long clienteId) {
+        return ResponseEntity.ok(cuotaService.findAllByClienteId(clienteId));
+    }
+
+    @Operation(summary = "Obtener cuota específica de un cliente")
+    @GetMapping("/cliente/{clienteId}/cuota/{cuotaId}")
+    public ResponseEntity<Cuota> findByIdAndClienteId(
+            @PathVariable Long clienteId,
+            @PathVariable Long cuotaId) {
+        return ResponseEntity.ok(cuotaService.findByIdAndClienteId(clienteId, cuotaId));
+    }
+
+    @Operation(summary = "Actualizar cuota de un cliente específico")
+    @PutMapping("/cliente/{clienteId}/cuota/{cuotaId}")
+    public ResponseEntity<Cuota> updateCuotaByCliente(
+            @PathVariable Long clienteId,
+            @PathVariable Long cuotaId,
+            @RequestBody Cuota cuota) {
+        return ResponseEntity.ok(cuotaService.updateCuotaByCliente(clienteId, cuotaId, cuota));
+    }
+
+    @Operation(summary = "Obtener todas las cuotas de un préstamo")
+    @GetMapping("/prestamo/{prestamoId}")
+    public ResponseEntity<List<Cuota>> findByPrestamoId(@PathVariable Long prestamoId) {
+        return ResponseEntity.ok(cuotaService.findByPrestamoId(prestamoId));
+    }
 }

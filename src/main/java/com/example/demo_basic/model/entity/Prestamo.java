@@ -29,10 +29,10 @@ import lombok.Setter;
 public class Prestamo extends BaseEntity {
 
     @Column(name = "monto", nullable = false)
-    private double monto;
+    private Double monto;
 
     @Column(name = "tasa_interes", nullable = false)
-    private double tasaInteres;
+    private Double tasaInteres;
     
     @Enumerated(EnumType.STRING)
     @Column(name = "estado", nullable = false, length = 20)
