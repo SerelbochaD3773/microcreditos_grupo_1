@@ -25,7 +25,7 @@ public class Cliente extends BaseEntity {
     private String nombre;
 
     @Column(name = "salario", nullable = false)
-    private double salario;
+    private Double salario;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "puntaje_credito", nullable = false)

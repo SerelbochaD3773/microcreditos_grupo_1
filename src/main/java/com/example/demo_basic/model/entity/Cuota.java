@@ -25,7 +25,7 @@ public class Cuota extends BaseEntity {
     private int numeroCuota;
 
     @Column(name = "valor", nullable = false)
-    private double valor;
+    private Double valor;
 
     @Column(name = "fecha_vencimiento", nullable = false)
     private LocalDate fechaVencimiento;
